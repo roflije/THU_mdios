@@ -16,31 +16,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YuJ-dg-ihN">
-                                <rect key="frame" x="20" y="91" width="374" height="641"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-D1-4GP">
-                                <rect key="frame" x="20" y="53" width="374" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-D1-4GP">
+                                <rect key="frame" x="43.5" y="53" width="327" height="32"/>
                                 <segments>
                                     <segment title="Clear"/>
                                     <segment title="Names"/>
                                     <segment title="Kilograms"/>
                                     <segment title="Load"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="xq6-Ay-s3c"/>
+                                </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-Fr-Vjw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-Fr-Vjw">
                                 <rect key="frame" x="182" y="740" width="50" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Add"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YuJ-dg-ihN">
+                                <rect key="frame" x="20" y="92" width="374" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY" userLabel="sal"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q6a-Fr-Vjw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0OQ-3f-wgk"/>
+                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Bpe-pF-ryP"/>
+                            <constraint firstItem="2Q2-D1-4GP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="FaH-GH-sCc"/>
+                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LSK-D4-Jq2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YuJ-dg-ihN" secondAttribute="trailing" constant="20" id="ZIw-Yo-XZc"/>
+                            <constraint firstItem="2Q2-D1-4GP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eOu-0D-hbw"/>
+                            <constraint firstItem="Q6a-Fr-Vjw" firstAttribute="top" secondItem="YuJ-dg-ihN" secondAttribute="bottom" constant="7" id="rik-XS-UkK"/>
+                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="top" secondItem="2Q2-D1-4GP" secondAttribute="bottom" constant="8" symbolic="YES" id="wf9-Dr-eKk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YuJ-dg-ihN" secondAttribute="bottom" constant="129" id="yTq-Rb-4yq"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clearBtn" destination="2Q2-D1-4GP" id="6VR-td-l5e"/>
+                        <outlet property="kgBtn" destination="2Q2-D1-4GP" id="4YO-qT-Q1F"/>
+                        <outlet property="loadBtn" destination="2Q2-D1-4GP" id="eOH-V6-CDW"/>
+                        <outlet property="namesBtn" destination="2Q2-D1-4GP" id="j9O-nI-d1y"/>
+                        <outlet property="segmentedControl" destination="2Q2-D1-4GP" id="DC7-ja-SvT"/>
+                        <outlet property="tv" destination="YuJ-dg-ihN" id="DdA-Zw-mxm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
