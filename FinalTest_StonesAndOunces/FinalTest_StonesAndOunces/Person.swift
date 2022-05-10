@@ -34,16 +34,6 @@ struct Person {
         return res;
     }
     
-    func isHeavierKG(cmp:Double) -> Bool {
-        if(self.getKG() < cmp) { return false; }
-        return true;
-    }
-    
-    func isHeavierOunces(cmp:Double) -> Bool {
-        if(self.getOunces() < cmp) { return false; }
-        return true;
-    }
-    
     func toString() -> String {
         return "\(name) | \(self.getKG())kg"
     }
