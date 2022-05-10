@@ -28,27 +28,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func segmentClear() -> Void {
-        data.removeAll()
+        people.removeAll()
         tv.reloadData()
     }
     func segmentNames() -> Void {
-        
+        if people.isEmpty {
+            getXML()
+        }
+        people = people.sorted(by: { $0.name < $1.name })
+        tv.reloadData()
     }
     func segmentKilograms() -> Void {
-        
+        if people.isEmpty {
+            getXML()
+        }
+        people = people.sorted(by: { $0.getKG() < $1.getKG() })
+        tv.reloadData()
     }
     func segmentLoad() -> Void {
-        print("Loading segment...")
         getXML()
-        print("Printing people...")
-        for p in people {
-            print(p.toString())
-        }
         tv.reloadData()
     }
     
     func getXML() -> Void {
-        print("Getting XML...")
         let customParser = CustomPersonParser()
         people = customParser.getPeople()
     }
@@ -72,12 +74,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hi")
-        segmentLoad()
         tv.dataSource = self
         tv.delegate = self
-        
-        print("loaded!")
     }
 }
 
