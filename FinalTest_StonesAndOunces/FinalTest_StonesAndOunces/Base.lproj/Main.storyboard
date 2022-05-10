@@ -42,14 +42,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Q6a-Fr-Vjw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0OQ-3f-wgk"/>
-                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Bpe-pF-ryP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YuJ-dg-ihN" secondAttribute="trailing" constant="20" id="AFp-fB-lfw"/>
                             <constraint firstItem="2Q2-D1-4GP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="FaH-GH-sCc"/>
-                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LSK-D4-Jq2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YuJ-dg-ihN" secondAttribute="trailing" constant="20" id="ZIw-Yo-XZc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q6a-Fr-Vjw" secondAttribute="bottom" constant="91" id="SZv-lT-A5L"/>
+                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="UUF-jV-DhR"/>
                             <constraint firstItem="2Q2-D1-4GP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eOu-0D-hbw"/>
+                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="top" secondItem="2Q2-D1-4GP" secondAttribute="bottom" constant="8" symbolic="YES" id="nHe-fW-uhL"/>
+                            <constraint firstItem="Q6a-Fr-Vjw" firstAttribute="top" secondItem="YuJ-dg-ihN" secondAttribute="bottom" constant="7" id="oxB-tJ-xsf"/>
                             <constraint firstItem="Q6a-Fr-Vjw" firstAttribute="top" secondItem="YuJ-dg-ihN" secondAttribute="bottom" constant="7" id="rik-XS-UkK"/>
-                            <constraint firstItem="YuJ-dg-ihN" firstAttribute="top" secondItem="2Q2-D1-4GP" secondAttribute="bottom" constant="8" symbolic="YES" id="wf9-Dr-eKk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YuJ-dg-ihN" secondAttribute="bottom" constant="129" id="yTq-Rb-4yq"/>
                         </constraints>
                     </view>
                     <connections>
