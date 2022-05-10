@@ -16,6 +16,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var kgBtn: UISegmentedControl!
     @IBOutlet weak var loadBtn: UISegmentedControl!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    // segment onclick
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
         let pressed = sender.selectedSegmentIndex
         switch pressed {
@@ -26,11 +28,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             default: break
         }
     }
-    
+    // clear segment
     func segmentClear() -> Void {
         people.removeAll()
         tv.reloadData()
     }
+    // names segment
     func segmentNames() -> Void {
         if people.isEmpty {
             getXML()
@@ -38,6 +41,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         people = people.sorted(by: { $0.name < $1.name })
         tv.reloadData()
     }
+    // kilograms segment
     func segmentKilograms() -> Void {
         if people.isEmpty {
             getXML()
@@ -45,21 +49,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         people = people.sorted(by: { $0.getKG() < $1.getKG() })
         tv.reloadData()
     }
+    // load segment
     func segmentLoad() -> Void {
         getXML()
         tv.reloadData()
     }
     
-    func getXML() -> Void {
-        let customParser = CustomPersonParser()
-        people = customParser.getPeople()
-    }
-    
+    // how many rows?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.people.count
     }
-    
-    
+    // cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let label = UILabel(frame: CGRect(x:0, y:12.5, width: 500, height:50))
@@ -68,10 +68,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.addSubview(label)
         return cell
     }
+    // onclick
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           print("row: \(indexPath.row)")
+    }
     
-    private func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-            return 300
-        }
+    // refreshener of xml data
+    func getXML() -> Void {
+        let customParser = CustomPersonParser()
+        people = customParser.getPeople()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tv.dataSource = self
