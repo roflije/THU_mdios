@@ -28,7 +28,7 @@ class EditViewController: UIViewController {
         doneBtn.setTitle("Done", for: .normal)
         doneBtn.addTarget(self,action:#selector(EditViewController.done(_:)), for: .touchUpInside)
         nameLabel.text = "Name"
-        weightLabel.text = "Weight"
+        weightLabel.text = "Weight (kg)"
         titleLabel.text = "Detail View"
         components = [backBtn,doneBtn,titleLabel,
             nameLabel,nameLabel2, weightLabel,weightTF,
@@ -76,7 +76,7 @@ class EditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let _ = presentingVC, let rowNumber = presentingVC?.modifiedNumber, let p = presentingVC?.people[rowNumber] {
             nameLabel2.text = p.name
-            weightTF.text = String(format:"%.2f",p.getKG()) + " kg"
+            weightTF.text = String(format:"%.2f",p.getKG())
         }
     }
     
