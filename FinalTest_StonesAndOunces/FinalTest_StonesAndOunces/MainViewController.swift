@@ -9,7 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate	 {
     var people = [Person]()
+    var extraPeople = [Person]()
     var data = [String]()
+    var modifiedNumber:Int?
+    var editViewOrAddView:Bool?
+    var pressedSegment = 0
     @IBOutlet weak var tv: UITableView!
     @IBOutlet weak var clearBtn: UISegmentedControl!
     @IBOutlet weak var namesBtn: UISegmentedControl!
@@ -19,8 +23,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // segment onclick
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
-        let pressed = sender.selectedSegmentIndex
-        switch pressed {
+        pressedSegment = sender.selectedSegmentIndex
+        switch pressedSegment {
             case 0: segmentClear()
             case 1: segmentNames()
             case 2: segmentKilograms()
@@ -61,16 +65,55 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     // cell generator
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        let label = UILabel(frame: CGRect(x:0, y:12.5, width: 500, height:50))
-        label.text = people[indexPath[1]].name + ", " + String(format: "%.2f", people[indexPath[1]].getKG()) + " kg"
-        label.sizeToFit()
-        cell.addSubview(label)
+        
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellReuseIdentifier")
+        let rowNumber = indexPath.row
+        cell.textLabel?.text = people[rowNumber].name
+        cell.detailTextLabel?.text = String( format: "%.2f", people[rowNumber].getKG()) + " kg"
         return cell
     }
-    // onclick
+    // onclick for rows
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           print("row: \(indexPath.row)")
+        self.modifiedNumber = indexPath.row
+        editViewOrAddView = true
+        performSegue(withIdentifier: "JumpToEditView", sender: people[modifiedNumber!])
+        
+    }
+    @IBAction func onClickAdd(_ sender: Any) {
+        editViewOrAddView = false
+        performSegue(withIdentifier: "JumpToAddView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if editViewOrAddView! {
+            let evc = segue.destination as! EditViewController
+            evc.person = sender as? Person
+        } else {
+            let avc = segue.destination as! AddViewController
+        }
+    }
+    @IBAction func returnFromEditViewController(_ segue:UIStoryboardSegue)->Void {
+        let evc = segue.source as! EditViewController
+        if var weight = Int(evc.weightTF.text!), let index = modifiedNumber {
+            weight = weight * 1000
+            var ounces = Double(weight) / 28.3495
+            let stones = Int(ounces / (16*14))
+            ounces = ounces - Double(stones * (16*14) )
+            let pounds = Int(ounces / 16)
+            ounces = ounces - Double(pounds * 16 )
+            people[index].stones = Double(stones)
+            people[index].pounds = Double(pounds)
+            people[index].ounces = Double(ounces)
+
+        }
+        print("Switching... ")
+        print(pressedSegment)
+        switch pressedSegment {
+            case 1: segmentNames()
+            case 2: segmentKilograms()
+            default: break
+        }
+        tv.reloadData()
     }
     
     // refreshener of xml data
@@ -85,3 +128,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
+
+// JumpToEditView
+// JumpToAddView

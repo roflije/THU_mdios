@@ -8,12 +8,26 @@
 import UIKit
 
 class EditViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    var person:Person?
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var weightTF: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let p = person {
+            nameLabel.text = p.name
+            weightTF.text = "\(p.getKG())"
+        }
     }
-
+    
+    @IBAction func back(_ sender: Any) {
+        if let p = person {
+            weightTF.text = "\(p.getKG())"
+        }
+        self.dismiss(animated: true)
+    }
+    @IBAction func done(_ sender: Any) {
+    }
+    
 
 }
 
