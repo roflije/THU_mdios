@@ -104,7 +104,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             people[index].stones = Double(stones)
             people[index].pounds = Double(pounds)
             people[index].ounces = Double(ounces)
-
         }
         print("Switching... ")
         print(pressedSegment)
@@ -115,11 +114,36 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         tv.reloadData()
     }
-    
+    @IBAction func returnFromAddViewController(_ segue:UIStoryboardSegue)->Void {
+        let avc = segue.source as! AddViewController
+        if var weight = Int(avc.weightInput.text!), let name = avc.nameInput.text {
+            weight = weight * 1000
+            var ounces = Double(weight) / 28.3495
+            let stones = Int(ounces / (16*14))
+            ounces = ounces - Double(stones * (16*14) )
+            let pounds = Int(ounces / 16)
+            ounces = ounces - Double(pounds * 16 )
+            var tempPerson = Person(_n: name, _s: Double(stones), _p: Double(pounds), _o: Double(ounces))
+            extraPeople.append(tempPerson)
+            people.append(tempPerson)
+        } else {
+            print("Bad addition!")
+        }
+        print(pressedSegment)
+        switch pressedSegment {
+            case 1: segmentNames()
+            case 2: segmentKilograms()
+            default: break
+        }
+        tv.reloadData()
+    }
     // refreshener of xml data
     func getXML() -> Void {
         let customParser = CustomPersonParser()
         people = customParser.getPeople()
+        if !extraPeople.isEmpty {
+            people.append(contentsOf: extraPeople)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
