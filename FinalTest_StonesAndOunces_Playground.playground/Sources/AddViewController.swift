@@ -8,6 +8,8 @@
 import UIKit
 
 class AddViewController: UIViewController {
+    var presentingVC:MainViewController?
+
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var weightInput: UITextField!
     

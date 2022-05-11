@@ -16,40 +16,48 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
     
     var tv = UITableView()
     var sc = UISegmentedControl(items: ["Clear", "Names", "Kilograms","Load"])
+    var addBtn = UIButton(configuration: .filled(), primaryAction: nil)
 
+    
     var ctts = [NSLayoutConstraint]()
     func setUpComponents() -> Void {
+        addBtn.setTitle("Add", for: .normal)
+        addBtn.addTarget(self,action:#selector(MainViewController.add(_:)), for: .touchUpInside)
+        
         tv.dataSource = self
         tv.delegate = self
+        addBtn.translatesAutoresizingMaskIntoConstraints = false
         tv.translatesAutoresizingMaskIntoConstraints = false
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.addTarget(self, action: #selector(MainViewController.segmentedAction(_:)), for: .valueChanged)
         // Thisis part 1 of using a given cell type
         tv.register(UITableViewCell.self, forCellReuseIdentifier: "CellReuseIdentifier")
-        //
-        // We need to do this, otherwise Clear will only work after clicking some other segment
-        //
         sc.selectedSegmentIndex = -1
+        
+        view.addSubview(addBtn)
         view.addSubview(tv)
         view.addSubview(sc)
     }
     func setUpConstraints() -> Void {
         let sal = view.safeAreaLayoutGuide
         ctts.append(contentsOf:[
+            addBtn.bottomAnchor.constraint(equalTo: sal.bottomAnchor, constant:-80),
+            addBtn.centerXAnchor.constraint(equalTo:sal.centerXAnchor),
+
             sc.topAnchor.constraint(equalTo: sal.topAnchor, constant:20),
             sc.leadingAnchor.constraint(equalTo: sal.leadingAnchor, constant:20),
             sc.trailingAnchor.constraint(equalTo: sal.trailingAnchor, constant: -20),
             tv.topAnchor.constraint(equalTo: sc.bottomAnchor, constant: 20),
             tv.leadingAnchor.constraint(equalTo: sal.leadingAnchor,constant:20),
             tv.trailingAnchor.constraint(equalTo: sal.trailingAnchor, constant:  -20),
-            tv.bottomAnchor.constraint(equalTo: sal.bottomAnchor, constant:-20),
+            tv.bottomAnchor.constraint(equalTo: addBtn.topAnchor, constant:-20),
+            
         ])
         NSLayoutConstraint.activate(ctts)
     }
     
     // segment onclick
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
-        print("clicked")
         pressedSegment = sender.selectedSegmentIndex
         switch pressedSegment {
             case 0: segmentClear()
@@ -109,6 +117,13 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
         present(presentedVC, animated: true)
     }
 
+    @objc func add(_ sender: UIButton) -> Void {
+        let presentedVC = AddViewController()
+        presentedVC.modalTransitionStyle = .coverVertical
+        presentedVC.modalPresentationStyle = .fullScreen
+        presentedVC.presentingVC = self // This is the dependency injection
+        present(presentedVC, animated: true)
+    }
     
     // refreshener of xml data
     func getXML() -> Void {
@@ -117,24 +132,6 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
         if !extraPeople.isEmpty {
             people.append(contentsOf: extraPeople)
         }
-    }
-    
-    func showToast(message : String, font: UIFont) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center;
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-             toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
     }
     
     public override func viewDidLoad() {

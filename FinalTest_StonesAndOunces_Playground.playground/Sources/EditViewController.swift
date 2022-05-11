@@ -76,7 +76,7 @@ class EditViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let _ = presentingVC, let rowNumber = presentingVC?.modifiedNumber, let p = presentingVC?.people[rowNumber] {
             nameLabel2.text = p.name
-            weightTF.text = "\(p.getKG())"
+            weightTF.text = String(format:"%.2f",p.getKG()) + " kg"
         }
     }
     
@@ -91,9 +91,6 @@ class EditViewController: UIViewController {
             presentingVC?.people[index].stones = Double(stones)
             presentingVC?.people[index].pounds = Double(pounds)
             presentingVC?.people[index].ounces = Double(ounces)
-            presentingVC?.showToast(message: "Edit OK", font: .systemFont(ofSize: 12.0))
-        } else {
-            presentingVC?.showToast(message: "No edit has been made!", font: .systemFont(ofSize: 12.0))
         }
         switch presentingVC?.pressedSegment {
         case 1: presentingVC?.segmentNames()
