@@ -94,13 +94,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     @IBAction func returnFromEditViewController(_ segue:UIStoryboardSegue)->Void {
         let evc = segue.source as! EditViewController
-        if var weight = Int(evc.weightTF.text!), let index = modifiedNumber {
-            weight = weight * 1000
-            var ounces = Double(weight) / 28.3495
-            let stones = Int(ounces / (16*14))
-            ounces = ounces - Double(stones * (16*14) )
-            let pounds = Int(ounces / 16)
-            ounces = ounces - Double(pounds * 16 )
+        if let stones = Double(evc.stonesTF.text!),
+           let pounds = Double(evc.poundsTF.text!),
+           let ounces = Double(evc.ouncesTF.text!),
+           let index = modifiedNumber {
             people[index].stones = Double(stones)
             people[index].pounds = Double(pounds)
             people[index].ounces = Double(ounces)
@@ -117,13 +114,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     @IBAction func returnFromAddViewController(_ segue:UIStoryboardSegue)->Void {
         let avc = segue.source as! AddViewController
-        if var weight = Int(avc.weightInput.text!), let name = avc.nameInput.text {
-            weight = weight * 1000
-            var ounces = Double(weight) / 28.3495
-            let stones = Int(ounces / (16*14))
-            ounces = ounces - Double(stones * (16*14) )
-            let pounds = Int(ounces / 16)
-            ounces = ounces - Double(pounds * 16 )
+        if let stones = Double(avc.stonesTF.text!),
+           let pounds = Double(avc.poundsTF.text!),
+           let ounces = Double(avc.ouncesTF.text!),
+           let name = avc.nameInput.text {
             var tempPerson = Person(_n: name, _s: Double(stones), _p: Double(pounds), _o: Double(ounces))
             extraPeople.append(tempPerson)
             people.append(tempPerson)

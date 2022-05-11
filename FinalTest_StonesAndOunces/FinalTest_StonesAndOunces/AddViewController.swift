@@ -9,8 +9,10 @@ import UIKit
 
 class AddViewController: UIViewController {
     @IBOutlet weak var nameInput: UITextField!
-    @IBOutlet weak var weightInput: UITextField!
-    
+    @IBOutlet weak var stonesTF: UITextField!
+    @IBOutlet weak var poundsTF: UITextField!
+    @IBOutlet weak var ouncesTF: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,7 +20,9 @@ class AddViewController: UIViewController {
 
     @IBAction func cancel(_ sender: Any) {
         nameInput.text = ""
-        weightInput.text = "dont parse me"
+        stonesTF.text = "dont parse me"
+        poundsTF.text = "dont parse me"
+        ouncesTF.text = "dont parse me"
     }
     
     @IBAction func Done(_ sender: Any) {

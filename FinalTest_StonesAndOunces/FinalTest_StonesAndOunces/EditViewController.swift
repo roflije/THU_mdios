@@ -10,18 +10,24 @@ import UIKit
 class EditViewController: UIViewController {
     var person:Person?
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var weightTF: UITextField!
+    @IBOutlet weak var stonesTF: UITextField!
+    @IBOutlet weak var poundsTF: UITextField!
+    @IBOutlet weak var ouncesTF: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         if let p = person {
             nameLabel.text = p.name
-            weightTF.text = "\(p.getKG())"
+            stonesTF.text = "\(p.stones)"
+            poundsTF.text = "\(p.pounds)"
+            ouncesTF.text = "\(p.ounces)"
         }
     }
     
     @IBAction func back(_ sender: Any) {
         if let p = person {
-            weightTF.text = "\(p.getKG())"
+            stonesTF.text = "\(p.stones)"
+            poundsTF.text = "\(p.pounds)"
+            ouncesTF.text = "\(p.ounces)"
         }
         self.dismiss(animated: true)
     }
