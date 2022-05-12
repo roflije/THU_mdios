@@ -4,6 +4,8 @@
 //
 //  Created by Schneider, Patryk on 04.05.22.
 //
+
+// note: same as in project - read there!
 import UIKit
 
 class CustomPersonParser: NSObject, XMLParserDelegate {

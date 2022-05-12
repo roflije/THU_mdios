@@ -109,6 +109,7 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
     // onclick for TableView rows
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.modifiedNumber = indexPath.row
+        // no segue, start view manually
         let presentedVC = EditViewController()
         presentedVC.modalTransitionStyle = .coverVertical
         presentedVC.modalPresentationStyle = .fullScreen
@@ -117,6 +118,7 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
     }
     // onClick for "Add" Button
     @objc func add(_ sender: UIButton) -> Void {
+        // no segue, start view manually
         let presentedVC = AddViewController()
         presentedVC.modalTransitionStyle = .coverVertical
         presentedVC.modalPresentationStyle = .fullScreen
