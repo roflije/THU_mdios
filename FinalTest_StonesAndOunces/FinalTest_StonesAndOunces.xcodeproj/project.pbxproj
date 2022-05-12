@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AAD66F482822DF3C004D21FC /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAD66F472822DF3C004D21FC /* data.xml */; };
+		AA0A0A35282D1593007CE28F /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA0A0A34282D1593007CE28F /* data.xml */; };
 		AAD66F4A2822F2DE004D21FC /* CustomPersonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD66F492822F2DE004D21FC /* CustomPersonParser.swift */; };
 		AAE13C64282187BA0066413C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE13C63282187BA0066413C /* AppDelegate.swift */; };
 		AAE13C66282187BA0066413C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE13C65282187BA0066413C /* SceneDelegate.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AAD66F472822DF3C004D21FC /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = data.xml; path = ../../data.xml; sourceTree = "<group>"; };
+		AA0A0A34282D1593007CE28F /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = data.xml; path = ../../data.xml; sourceTree = "<group>"; };
 		AAD66F492822F2DE004D21FC /* CustomPersonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPersonParser.swift; sourceTree = "<group>"; };
 		AAE13C60282187BA0066413C /* FinalTest_StonesAndOunces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalTest_StonesAndOunces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE13C63282187BA0066413C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 		AAE13C62282187BA0066413C /* FinalTest_StonesAndOunces */ = {
 			isa = PBXGroup;
 			children = (
+				AA0A0A34282D1593007CE28F /* data.xml */,
 				AAE13C63282187BA0066413C /* AppDelegate.swift */,
 				AAE13C65282187BA0066413C /* SceneDelegate.swift */,
 				AAE13C9528218F010066413C /* MainViewController.swift */,
@@ -119,7 +120,6 @@
 				AAE13C6E282187BC0066413C /* LaunchScreen.storyboard */,
 				AAE13C71282187BC0066413C /* Info.plist */,
 				AAE13C93282188B10066413C /* Person.swift */,
-				AAD66F472822DF3C004D21FC /* data.xml */,
 				AAD66F492822F2DE004D21FC /* CustomPersonParser.swift */,
 			);
 			path = FinalTest_StonesAndOunces;
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAE13C70282187BC0066413C /* LaunchScreen.storyboard in Resources */,
-				AAD66F482822DF3C004D21FC /* data.xml in Resources */,
+				AA0A0A35282D1593007CE28F /* data.xml in Resources */,
 				AAE13C6D282187BC0066413C /* Assets.xcassets in Resources */,
 				AAE13C6B282187BA0066413C /* Main.storyboard in Resources */,
 			);
