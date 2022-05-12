@@ -25,6 +25,7 @@ class EditViewController: UIViewController {
     
     @IBAction func back(_ sender: Any) {
         if let p = person {
+            print(p.toString())
             stonesTF.text = "\(p.stones)"
             poundsTF.text = "\(p.pounds)"
             ouncesTF.text = "\(p.ounces)"

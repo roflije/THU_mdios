@@ -101,9 +101,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             people[index].stones = Double(stones)
             people[index].pounds = Double(pounds)
             people[index].ounces = Double(ounces)
-            self.showToast(message: "Edit OK", font: .systemFont(ofSize: 12.0))
-        } else {
-            self.showToast(message: "No edit has been made!", font: .systemFont(ofSize: 12.0))
         }
         switch pressedSegment {
             case 1: segmentNames()
@@ -118,12 +115,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
            let pounds = Double(avc.poundsTF.text!),
            let ounces = Double(avc.ouncesTF.text!),
            let name = avc.nameInput.text {
-            var tempPerson = Person(_n: name, _s: Double(stones), _p: Double(pounds), _o: Double(ounces))
+            let tempPerson = Person(_n: name, _s: Double(stones), _p: Double(pounds), _o: Double(ounces))
             extraPeople.append(tempPerson)
             people.append(tempPerson)
-            self.showToast(message: "Person added!", font: .systemFont(ofSize: 12.0))
-        } else {
-            self.showToast(message: "No person added!", font: UIFont.systemFont(ofSize: 12.0))
         }
         switch pressedSegment {
             case 1: segmentNames()
@@ -139,24 +133,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if !extraPeople.isEmpty {
             people.append(contentsOf: extraPeople)
         }
-    }
-    
-    func showToast(message : String, font: UIFont) {
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center;
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-             toastLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
-        })
     }
     
     override func viewDidLoad() {

@@ -35,7 +35,7 @@ struct Person {
     }
     
     func toString() -> String {
-        return "\(name) | \(self.getKG())kg"
+        return "\(name) | Stones: \(stones) | Pounds: \(pounds) | Ounces: \(ounces) | \(self.getKG())kg"
     }
 
     func isEmpty() -> Bool {
