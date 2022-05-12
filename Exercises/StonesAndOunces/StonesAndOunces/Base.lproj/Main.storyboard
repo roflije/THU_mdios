@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StonesAndOunces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHf-5V-6Ze">
+                                <rect key="frame" x="16" y="153" width="50" height="43.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ounces:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zf1-i6-oVT">
+                                <rect key="frame" x="11" y="267" width="64" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your weight in kilograms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOb-6C-cO1">
+                                <rect key="frame" x="68" y="435" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Nz-FI-0pb">
+                                <rect key="frame" x="113" y="349" width="94" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="TAP HERE!"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DY1-S3-gdv">
+                                <rect key="frame" x="104" y="157" width="196" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nCh-ox-wvs">
+                                <rect key="frame" x="106" y="223" width="200" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4K-70-wP1">
+                                <rect key="frame" x="106" y="265" width="196" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhD-if-1vY">
+                                <rect key="frame" x="66" y="42" width="188" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pounds:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wm-dF-dDn">
+                                <rect key="frame" x="16" y="230" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DY1-S3-gdv" secondAttribute="trailing" constant="20" id="04M-k6-7Uu"/>
+                            <constraint firstItem="Zf1-i6-oVT" firstAttribute="firstBaseline" secondItem="5Wm-dF-dDn" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="2XX-ds-UPx"/>
+                            <constraint firstItem="nCh-ox-wvs" firstAttribute="top" secondItem="DY1-S3-gdv" secondAttribute="bottom" constant="13" id="F0D-MB-gRB"/>
+                            <constraint firstItem="uhD-if-1vY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="KDE-mF-fNS"/>
+                            <constraint firstItem="NOb-6C-cO1" firstAttribute="top" secondItem="7Nz-FI-0pb" secondAttribute="bottom" constant="55" id="NLU-SK-gAd"/>
+                            <constraint firstItem="Zf1-i6-oVT" firstAttribute="firstBaseline" secondItem="t4K-70-wP1" secondAttribute="firstBaseline" id="Oco-lQ-2hN"/>
+                            <constraint firstItem="Zf1-i6-oVT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QVL-F3-MlJ"/>
+                            <constraint firstItem="t4K-70-wP1" firstAttribute="leading" secondItem="Zf1-i6-oVT" secondAttribute="trailing" constant="24" id="VHb-o1-5br"/>
+                            <constraint firstItem="nCh-ox-wvs" firstAttribute="leading" secondItem="5Wm-dF-dDn" secondAttribute="trailing" constant="22" id="VW7-fh-ce0"/>
+                            <constraint firstItem="5Wm-dF-dDn" firstAttribute="top" secondItem="aHf-5V-6Ze" secondAttribute="bottom" constant="33.5" id="VrX-mn-HQm"/>
+                            <constraint firstItem="5Wm-dF-dDn" firstAttribute="firstBaseline" secondItem="nCh-ox-wvs" secondAttribute="firstBaseline" id="Wyp-JW-2Q7"/>
+                            <constraint firstItem="5Wm-dF-dDn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XSc-31-N9H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t4K-70-wP1" secondAttribute="trailing" constant="20" id="bg7-Yx-wVr"/>
+                            <constraint firstItem="t4K-70-wP1" firstAttribute="top" secondItem="nCh-ox-wvs" secondAttribute="bottom" constant="38" id="fTZ-Uh-dlR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uhD-if-1vY" secondAttribute="trailing" constant="66" id="gfr-6F-ONv"/>
+                            <constraint firstItem="aHf-5V-6Ze" firstAttribute="firstBaseline" secondItem="DY1-S3-gdv" secondAttribute="firstBaseline" id="gqD-0c-WMf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NOb-6C-cO1" secondAttribute="trailing" constant="66" id="jLr-t8-NEq"/>
+                            <constraint firstItem="DY1-S3-gdv" firstAttribute="leading" secondItem="aHf-5V-6Ze" secondAttribute="trailing" constant="34" id="jSa-gx-c7K"/>
+                            <constraint firstItem="aHf-5V-6Ze" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rL3-r6-gzL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nCh-ox-wvs" secondAttribute="trailing" constant="16" id="rRI-fR-Y0s"/>
+                            <constraint firstItem="NOb-6C-cO1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="s7Y-zv-QTJ"/>
+                            <constraint firstItem="7Nz-FI-0pb" firstAttribute="top" secondItem="t4K-70-wP1" secondAttribute="bottom" constant="42" id="vz9-49-saD"/>
+                            <constraint firstItem="uhD-if-1vY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="66" id="xLc-XW-bW7"/>
+                            <constraint firstItem="DY1-S3-gdv" firstAttribute="top" secondItem="uhD-if-1vY" secondAttribute="bottom" constant="84" id="xmf-jV-4TM"/>
+                            <constraint firstItem="7Nz-FI-0pb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yyQ-bM-01D"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="28.125" y="83.450704225352112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

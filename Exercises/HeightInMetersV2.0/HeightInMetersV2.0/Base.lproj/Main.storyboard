@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HeightInMetersV2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please type your height in meters:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4w-r8-5kk">
+                                <rect key="frame" x="39" y="27" width="258" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your height in centimeters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hu6-Ce-Alw">
+                                <rect key="frame" x="61" y="194" width="199" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NZw-tt-tGU">
+                                <rect key="frame" x="39" y="74" width="258" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSc-vV-KpU">
+                                <rect key="frame" x="118" y="137" width="85" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Tap here!"/>
+                                <connections>
+                                    <action selector="convertHeight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nak-E0-Gln"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pex-oe-lbe">
+                                <rect key="frame" x="123" y="265" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hu6-Ce-Alw" firstAttribute="top" secondItem="jSc-vV-KpU" secondAttribute="bottom" constant="26" id="05w-W5-5Ln"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pex-oe-lbe" secondAttribute="trailing" constant="106" id="2C7-ub-gqJ"/>
+                            <constraint firstItem="hu6-Ce-Alw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="4ey-re-4DU"/>
+                            <constraint firstItem="jSc-vV-KpU" firstAttribute="top" secondItem="NZw-tt-tGU" secondAttribute="bottom" constant="29" id="DJj-xJ-Cs3"/>
+                            <constraint firstItem="jSc-vV-KpU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="FCi-NE-35X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O4w-r8-5kk" secondAttribute="trailing" constant="23" id="JSK-iR-PtC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hu6-Ce-Alw" secondAttribute="trailing" constant="60" id="OTn-GA-lax"/>
+                            <constraint firstItem="NZw-tt-tGU" firstAttribute="top" secondItem="O4w-r8-5kk" secondAttribute="bottom" constant="26" id="TB4-oX-zxt"/>
+                            <constraint firstItem="pex-oe-lbe" firstAttribute="top" secondItem="hu6-Ce-Alw" secondAttribute="bottom" constant="40.5" id="Uas-wb-uox"/>
+                            <constraint firstItem="pex-oe-lbe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="123" id="fKn-CW-QvE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NZw-tt-tGU" secondAttribute="trailing" constant="23" id="nA7-b3-fII"/>
+                            <constraint firstItem="NZw-tt-tGU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="uDa-h5-PT8"/>
+                            <constraint firstItem="O4w-r8-5kk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="udj-cq-ypN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jSc-vV-KpU" secondAttribute="trailing" constant="117" id="uvn-49-gJo"/>
+                            <constraint firstItem="O4w-r8-5kk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="uxh-xs-s9p"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="heightCentimeters" destination="pex-oe-lbe" id="rj6-Xs-nSa"/>
+                        <outlet property="heightMeters" destination="NZw-tt-tGU" id="Fi6-fI-lOo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82.5" y="116.19718309859155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

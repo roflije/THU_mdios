@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WdI-hD-JDM">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 1-->
+        <scene sceneID="cAE-Ke-N6C">
+            <objects>
+                <viewController id="EvW-jl-hjl" customClass="ViewController" customModule="MapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Z5-nG-EqE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ajz-sc-KEo">
+                                <rect key="frame" x="16" y="20" width="288" height="499"/>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oYU-T1-iCC">
+                                <rect key="frame" x="16" y="25" width="281" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satelite Flyover"/>
+                                    <segment title="Muted Standard"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="EvW-jl-hjl" eventType="valueChanged" id="3Fl-cM-6y9"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Xp1-T6-6hj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ajz-sc-KEo" firstAttribute="leading" secondItem="Xp1-T6-6hj" secondAttribute="leading" constant="16" id="ATw-cl-cvo"/>
+                            <constraint firstItem="ajz-sc-KEo" firstAttribute="top" secondItem="Xp1-T6-6hj" secondAttribute="top" constant="20" id="CD0-X7-fKc"/>
+                            <constraint firstItem="Xp1-T6-6hj" firstAttribute="bottom" secondItem="ajz-sc-KEo" secondAttribute="bottom" id="EFc-zP-4LT"/>
+                            <constraint firstItem="Xp1-T6-6hj" firstAttribute="trailing" secondItem="oYU-T1-iCC" secondAttribute="trailing" constant="16" id="FNf-W4-CPi"/>
+                            <constraint firstItem="oYU-T1-iCC" firstAttribute="leading" secondItem="Xp1-T6-6hj" secondAttribute="leading" constant="16" id="GE7-7D-ad2"/>
+                            <constraint firstItem="oYU-T1-iCC" firstAttribute="top" secondItem="Xp1-T6-6hj" secondAttribute="top" constant="20" id="vLu-Y6-gAF"/>
+                            <constraint firstItem="Xp1-T6-6hj" firstAttribute="trailing" secondItem="ajz-sc-KEo" secondAttribute="trailing" constant="16" id="wLe-Bs-hFQ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="0Qb-Bg-lqa"/>
+                    <connections>
+                        <outlet property="mapView" destination="ajz-sc-KEo" id="I7r-D4-nae"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1v-bG-uLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="-978"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="0Gl-CW-2Gi">
+            <objects>
+                <viewController id="CV5-PN-Q09" customClass="ThirdViewController" customModule="MapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o4N-Ew-7VG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-5N-mFp">
+                                <rect key="frame" x="16" y="20" width="288" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satelite Flyover"/>
+                                    <segment title="Muted Standard"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="CV5-PN-Q09" eventType="valueChanged" id="6Pb-3O-ucF"/>
+                                </connections>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nHV-db-fNx">
+                                <rect key="frame" x="16" y="10" width="288" height="548"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xFO-BF-5na"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yeD-5N-mFp" firstAttribute="top" secondItem="xFO-BF-5na" secondAttribute="top" constant="20" id="73j-qu-vBn"/>
+                            <constraint firstItem="yeD-5N-mFp" firstAttribute="leading" secondItem="xFO-BF-5na" secondAttribute="leading" constant="16" id="ETY-QJ-ZKJ"/>
+                            <constraint firstItem="xFO-BF-5na" firstAttribute="trailing" secondItem="nHV-db-fNx" secondAttribute="trailing" constant="16" id="PkM-WQ-UEJ"/>
+                            <constraint firstItem="nHV-db-fNx" firstAttribute="top" secondItem="xFO-BF-5na" secondAttribute="top" constant="20" id="fWB-a3-P9D"/>
+                            <constraint firstItem="xFO-BF-5na" firstAttribute="bottom" secondItem="nHV-db-fNx" secondAttribute="bottom" id="iXF-zm-d8u"/>
+                            <constraint firstItem="nHV-db-fNx" firstAttribute="leading" secondItem="xFO-BF-5na" secondAttribute="leading" constant="16" id="xYb-eg-T2R"/>
+                            <constraint firstItem="xFO-BF-5na" firstAttribute="trailing" secondItem="yeD-5N-mFp" secondAttribute="trailing" constant="16" id="yxf-Rw-KeW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="vLg-2g-dUm"/>
+                    <connections>
+                        <outlet property="mapView" destination="nHV-db-fNx" id="a1Z-Ul-W4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDe-5D-BGw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-46"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CLQ-eV-U9I">
+            <objects>
+                <tabBarController id="WdI-hD-JDM" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9kZ-l7-JGE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EvW-jl-hjl" kind="relationship" relationship="viewControllers" id="Bgb-Ot-U0T"/>
+                        <segue destination="FqC-Ru-eaP" kind="relationship" relationship="viewControllers" id="cH3-bV-aFK"/>
+                        <segue destination="CV5-PN-Q09" kind="relationship" relationship="viewControllers" id="qcK-C5-n3w"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Haw-mC-F1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="-453"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="u70-66-7jA">
+            <objects>
+                <viewController id="FqC-Ru-eaP" customClass="SecondViewController" customModule="MapApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hUk-6r-G0M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rgo-0L-hVW">
+                                <rect key="frame" x="16" y="20" width="288" height="32"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satelite Flyover"/>
+                                    <segment title="Muted Standard"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedAction:" destination="FqC-Ru-eaP" eventType="valueChanged" id="724-S2-1Nj"/>
+                                </connections>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="urP-Bi-3Li">
+                                <rect key="frame" x="16" y="10" width="288" height="548"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JZv-YC-NqS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="urP-Bi-3Li" firstAttribute="leading" secondItem="JZv-YC-NqS" secondAttribute="leading" constant="16" id="39K-14-zE6"/>
+                            <constraint firstItem="JZv-YC-NqS" firstAttribute="trailing" secondItem="urP-Bi-3Li" secondAttribute="trailing" constant="16" id="3xc-ps-AoI"/>
+                            <constraint firstItem="Rgo-0L-hVW" firstAttribute="leading" secondItem="JZv-YC-NqS" secondAttribute="leading" constant="16" id="4Xy-bk-hKZ"/>
+                            <constraint firstItem="Rgo-0L-hVW" firstAttribute="top" secondItem="JZv-YC-NqS" secondAttribute="top" constant="20" id="8wv-sd-ZNM"/>
+                            <constraint firstItem="JZv-YC-NqS" firstAttribute="trailing" secondItem="Rgo-0L-hVW" secondAttribute="trailing" constant="16" id="CBN-sr-vYA"/>
+                            <constraint firstItem="urP-Bi-3Li" firstAttribute="top" secondItem="JZv-YC-NqS" secondAttribute="top" constant="20" id="oGn-yO-PiR"/>
+                            <constraint firstItem="JZv-YC-NqS" firstAttribute="bottom" secondItem="urP-Bi-3Li" secondAttribute="bottom" id="xxi-iN-rhP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="xBc-rN-fZZ"/>
+                    <connections>
+                        <outlet property="mapView" destination="urP-Bi-3Li" id="KxI-NM-pKm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DMd-OF-v6w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="-453"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

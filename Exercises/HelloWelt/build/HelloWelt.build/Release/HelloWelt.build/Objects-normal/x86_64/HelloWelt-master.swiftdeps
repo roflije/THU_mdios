@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "a4a403bdde4144706e008de51b2a7e16294521111299e750d5f9535b87782b48"
+build_start_time: [1647975167, 165218830]
+build_end_time: [1647975173, 731660842]
+inputs:
+  "/Users/jeet/Desktop/Neuer Ordner/HelloWelt/HelloWelt/main.swift": [1647973383, 526728630]
