@@ -7,6 +7,7 @@
 import UIKit
 
 class CustomPersonParser: NSObject, XMLParserDelegate {
+    // variables
     var stringCounter = 0
     var outerArray:Bool = false
     var innerArray:Bool = false
@@ -14,7 +15,7 @@ class CustomPersonParser: NSObject, XMLParserDelegate {
     var tempName:String = ""
     var tempWeight = [-1.0, -1.0, -1.0]
     var people = [Person]()
-    
+    // base function
     func getPeople() -> [Person]{
         if let path = Bundle.main.url(forResource: "data", withExtension: "xml"){
             if let parser = XMLParser(contentsOf: path){
@@ -24,8 +25,7 @@ class CustomPersonParser: NSObject, XMLParserDelegate {
         }
         return people
     }
-    
-    
+    // this is called when an XML element is first found
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         if elementName == "array" && !outerArray {
             outerArray = true
@@ -35,11 +35,12 @@ class CustomPersonParser: NSObject, XMLParserDelegate {
             }
         }
     }
+    // this is called when an XML element is ending
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "array" && innerArray {
             innerArray = false
             if tempName != "" && tempWeight[0] != -1.0 && tempWeight[1] != -1.0 && tempWeight[2] != -1.0 {
-                var temporaryPerson = Person(_n: tempName, _s:tempWeight[0], _p:tempWeight[1], _o:tempWeight[2])
+                let temporaryPerson = Person(_n: tempName, _s:tempWeight[0], _p:tempWeight[1], _o:tempWeight[2])
                 people.append(temporaryPerson)
             }
             stringCounter = 0
@@ -73,9 +74,11 @@ class CustomPersonParser: NSObject, XMLParserDelegate {
             stringCounter = stringCounter + 1
         }
     }
+    // this is called when data within element is found
     func parser(_ parser: XMLParser, foundCharacters data: String) {
         if (!data.isEmpty) {
             tempString += data
         }
     }
 }
+

@@ -17,7 +17,7 @@ class AddViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    // if cancel button is pressed, set data that won't parse to double (thus it will not add the person)
     @IBAction func cancel(_ sender: Any) {
         nameInput.text = ""
         stonesTF.text = "dont parse me"

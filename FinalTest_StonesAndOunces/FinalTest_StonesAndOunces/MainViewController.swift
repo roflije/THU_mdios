@@ -8,12 +8,13 @@
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate	 {
-    var people = [Person]()
-    var extraPeople = [Person]()
-    var data = [String]()
-    var modifiedNumber:Int?
-    var editViewOrAddView:Bool?
-    var pressedSegment = 0
+    // Variables
+    var people = [Person]() // stores people from XML + Added
+    var extraPeople = [Person]() // stores added people (in case of clear/reload from XML)
+    var modifiedNumber:Int? // stores which row has been tapped
+    var editViewOrAddView:Bool? // used to differeniate between jumping to edit view controller or add view controller
+    var pressedSegment = 0 // set to 0 on start
+    // Outlets
     @IBOutlet weak var tv: UITableView!
     @IBOutlet weak var clearBtn: UISegmentedControl!
     @IBOutlet weak var namesBtn: UISegmentedControl!
@@ -21,7 +22,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var loadBtn: UISegmentedControl!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    // segment onclick
+    // Segment onClick - calls proper function depending on which segment has been pressed
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
         pressedSegment = sender.selectedSegmentIndex
         switch pressedSegment {
@@ -32,12 +33,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             default: break
         }
     }
-    // clear segment
+    // clear segment - clear & reload tableview
     func segmentClear() -> Void {
         people.removeAll()
         tv.reloadData()
     }
-    // names segment
+    // names segment - fetches data if people array is empty and sorts them by name
     func segmentNames() -> Void {
         if people.isEmpty {
             getXML()
@@ -45,7 +46,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         people = people.sorted(by: { $0.name < $1.name })
         tv.reloadData()
     }
-    // kilograms segment
+    // kilograms segment - fetches data if people array is empty and sorts them by kg
     func segmentKilograms() -> Void {
         if people.isEmpty {
             getXML()
@@ -53,17 +54,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         people = people.sorted(by: { $0.getKG() < $1.getKG() })
         tv.reloadData()
     }
-    // load segment
+    // load segment - loads data from xml
     func segmentLoad() -> Void {
         getXML()
         tv.reloadData()
     }
     
-    // how many rows?
+    // how many rows for tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.people.count
     }
-    // cell generator
+    // cell generator for tableview
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellReuseIdentifier")
@@ -72,18 +73,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.detailTextLabel?.text = String( format: "%.2f", people[rowNumber].getKG()) + " kg"
         return cell
     }
-    // onclick for rows
+    // onclick for rows - saves row number and jumps to EditView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.modifiedNumber = indexPath.row
         editViewOrAddView = true
         performSegue(withIdentifier: "JumpToEditView", sender: people[modifiedNumber!])
         
     }
+    // onclick for add button - jumps to AddView
     @IBAction func onClickAdd(_ sender: Any) {
         editViewOrAddView = false
         performSegue(withIdentifier: "JumpToAddView", sender: nil)
     }
-    
+    // preparation for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if editViewOrAddView! {
             let evc = segue.destination as! EditViewController
@@ -92,6 +94,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let avc = segue.destination as! AddViewController
         }
     }
+    // return from EditView - modify person if data from textfield can be parsed
     @IBAction func returnFromEditViewController(_ segue:UIStoryboardSegue)->Void {
         let evc = segue.source as! EditViewController
         if let stones = Double(evc.stonesTF.text!),
@@ -109,6 +112,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         tv.reloadData()
     }
+    // return from AddView - add person if data from textfield can be parsed
     @IBAction func returnFromAddViewController(_ segue:UIStoryboardSegue)->Void {
         let avc = segue.source as! AddViewController
         if let stones = Double(avc.stonesTF.text!),
