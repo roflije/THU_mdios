@@ -94,20 +94,19 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
         tv.reloadData()
     }
     
-    // how many rows?
+    // how many rows for TableView?
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.people.count
     }
-    // cell generator
+    // cell generator for TableView
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "CellReuseIdentifier")
         let rowNumber = indexPath.row
         cell.textLabel?.text = people[rowNumber].name
         cell.detailTextLabel?.text = String( format: "%.2f", people[rowNumber].getKG()) + " kg"
         return cell
     }
-    // onclick for rows
+    // onclick for TableView rows
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.modifiedNumber = indexPath.row
         let presentedVC = EditViewController()
@@ -116,7 +115,7 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
         presentedVC.presentingVC = self // This is the dependency injection
         present(presentedVC, animated: true)
     }
-
+    // onClick for "Add" Button
     @objc func add(_ sender: UIButton) -> Void {
         let presentedVC = AddViewController()
         presentedVC.modalTransitionStyle = .coverVertical
@@ -129,6 +128,7 @@ public class MainViewController: UIViewController, UITableViewDataSource, UITabl
     func getXML() -> Void {
         let customParser = CustomPersonParser()
         people = customParser.getPeople()
+        // Load customly added people
         if !extraPeople.isEmpty {
             people.append(contentsOf: extraPeople)
         }
